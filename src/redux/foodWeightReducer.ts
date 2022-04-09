@@ -35,9 +35,7 @@ export type FoodWeightType = {
 }
 
 export const initialState: FoodWeightType = {
-    foodContainer: [
-        {id: v1(), name: 'СЫР', startPrice: 500, startWeight: 400, finalPrice: '1200'}
-    ],
+    foodContainer: [],
     InputName: '',
     InputPrice: 0,
     InputWeight: 0,
@@ -81,10 +79,11 @@ export const foodWeightReducer = (state: FoodWeightType = initialState, action: 
             }
         case ActionName.ADD_WEIGHT:
             finalPrice = '';
-            if(action.weight === 0) {finalPrice ='Введен нулевой вес'}
-            else if (state.InputPrice===0) {finalPrice = 'Введена некорректная цена'}
-            else
-            {
+            if (action.weight === 0) {
+                finalPrice = 'Введен нулевой вес'
+            } else if (state.InputPrice === 0) {
+                finalPrice = 'Введена некорректная цена'
+            } else {
                 finalPrice = (1000 / action.weight * state.InputPrice).toFixed(2)
             }
             return {
@@ -134,3 +133,5 @@ export const AddWeight = (weight: number) => {
 export const ClearInputAC = () => {
     return {type: ActionName.CLEAR_INPUT} as const
 }
+
+// TODO сделать сохранение в локал сторадж и в кэш браузера

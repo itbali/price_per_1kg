@@ -1,12 +1,22 @@
-import React, {ChangeEvent,} from 'react';
+import React, {ChangeEvent} from 'react';
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
-import {Accordion, AccordionDetails, AccordionSummary, Button, Grid, Paper, TextField, Typography} from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Button,
+    Grid,
+    Paper,
+    TextField,
+    Typography
+} from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {RootStoreType, store} from "./redux/redux";
 import {AddName, AddPrice, AddToListAC, AddWeight, ClearListAC, SingleFoodType} from "./redux/foodWeightReducer";
 
 function App() {
+
     const foodList = useSelector<RootStoreType, Array<SingleFoodType>>(store => store.foodList.foodContainer)
     const inputName = useSelector<RootStoreType, string>(store => store.foodList.InputName)
     const inputWeigh = useSelector<RootStoreType, number>(store => store.foodList.InputWeight)
@@ -41,6 +51,10 @@ function App() {
     return (
         <div className="App">
             <Button onClick={ShowState}>КОНСОЛЬ</Button>
+            {/* TODO Убрать кнопку консоль*/}
+            {/*TODO Добавить переключатель светлой и темной темы*/}
+            {/*TODO Добавить переключатель литров и килограммов*/}
+
             <hr/>
 
             <span> ИМЯ: <TextField variant={'outlined'} size={'small'} label={'Название'}
@@ -49,7 +63,9 @@ function App() {
                                     onChange={onPriceInputChangeHandler} value={inputPrice}/></span>
             <span> ВЕС: <TextField variant={'outlined'} size={'small'} label={'Вес'}
                                    onChange={onWeightInputChangeHandler} value={inputWeigh}/></span>
-            <span> ЦЕНА ЗА 1КГ: <TextField size={"small"} disabled value={outputWeight}/></span>
+            <span> ЦЕНА ЗА 1КГ: <TextField variant={'filled'} hiddenLabel defaultValue={"Small"} size={"small"}
+                                           disabled
+                                           value={outputWeight}/></span>
 
             <Button variant="contained" onClick={addToListHandler}>Добавить в список</Button>
             <hr/>
@@ -59,7 +75,7 @@ function App() {
                     <Grid item xs={12} md={6} lg={2} key={el.id}>
                         <Paper elevation={5}>
                             <Accordion>
-                                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
                                     <Typography variant={"h5"}>{`${el.name}`}</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
