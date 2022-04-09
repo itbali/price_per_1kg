@@ -1,5 +1,10 @@
-import {combineReducers, createStore, Store} from "redux";
+import {combineReducers, createStore} from "redux";
 import {foodWeightReducer} from "./foodWeightReducer";
 
-const rootReducer = combineReducers(foodWeightReducer)
-export const store:Store = createStore(rootReducer)
+export type RootStoreType = ReturnType<typeof rootReducer>
+
+const rootReducer = combineReducers({
+    foodList: foodWeightReducer,
+})
+
+export const store = createStore(rootReducer)
