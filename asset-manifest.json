@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/price_per_1kg/static/css/main.073c9b0a.css",
-    "main.js": "/price_per_1kg/static/js/main.bf3760c3.js",
+    "main.js": "/price_per_1kg/static/js/main.0a388d8c.js",
     "static/js/787.771cead6.chunk.js": "/price_per_1kg/static/js/787.771cead6.chunk.js",
     "index.html": "/price_per_1kg/index.html",
     "main.073c9b0a.css.map": "/price_per_1kg/static/css/main.073c9b0a.css.map",
-    "main.bf3760c3.js.map": "/price_per_1kg/static/js/main.bf3760c3.js.map",
+    "main.0a388d8c.js.map": "/price_per_1kg/static/js/main.0a388d8c.js.map",
     "787.771cead6.chunk.js.map": "/price_per_1kg/static/js/787.771cead6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.bf3760c3.js"
+    "static/js/main.0a388d8c.js"
   ]
 }
